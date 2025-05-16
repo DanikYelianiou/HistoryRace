@@ -1,25 +1,17 @@
 import React from 'react';
+import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack'; 
-import DriversList from './src/screens/DriversList';
-import DriverDetail from './src/screens/DriverDetail';
 
-const Stack = createNativeStackNavigator();
+import RootNavigator from './src/navigation/RootNavigator';
 
 const AppNavigator = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="DriversList" screenOptions={{ headerShown: false }}>
-        <Stack.Screen 
-          name="DriversList" 
-          component={DriversList} 
-        />
-        <Stack.Screen 
-          name="DriverDetail" 
-          component={DriverDetail} 
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      <StatusBar animated translucent backgroundColor="transparent" barStyle="dark-content" />
+      <NavigationContainer>
+        <RootNavigator />
+      </NavigationContainer>
+    </>
   );
 };
 
